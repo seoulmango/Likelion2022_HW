@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+}
+
+.Container-box {
+    width: 1080px;
+    height: 2275px;
+}
+
+.Status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+}
+
+.Time {
+    font-size: 40px;
+    color: gray;
+}
+
+.wifi-pic {
+    height: 40px;
+    width: 40px;
+    font-size: 30px;
+    color: gray;
+    margin-right: 10px;
+}
+
+#battery {
+    margin-right: 0;
+}
+
+.Account-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 140px;
+}
+.Name {
+    height: 40px;
+    width: 40px;
+    font-size: 60px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.Account-bar-right {
+    display: flex;
+    width: 220px;
+    justify-content: space-between;
+}
+
+.Name-icon{
+    height: 60px;
+    width: 60px;
+    margin-right: 30px;
+}
+
+
+.Profile-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+#Profile {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+}
+
+.Profile-bar-element{
+    font-size: 50px;
+    text-align: center;
+}
+
+.Intro-bar {
+    font-size: 33px;
+    margin-top: 30px;
+    margin-left: 45px;
+}
+
+.Edit-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.Profile-edit {
+    width: 970px;
+    border: 3px solid rgba(192, 183, 183, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 70px;
+}
+.Findppl-box {
+    border: 3px solid rgba(192, 183, 183, 0.5);
+    border-radius: 10px;
+}
+
+.Findppl {
+    height: 40px;
+    width: 40px;
+    margin: 9px;
+}
+
+.Story-text-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 40px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 1080px;
+}
+
+.Story-text-bar-up {
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    width: 1010px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#up {
+    height: 40px;
+    width: 40px;
+}
+
+.Story-pic-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.Story-pic-add {
+    border: solid 1px black;
+    border-radius: 100px;
+    width: 160px;
+    height: 160px;
+    font-size: 100px;
+    text-align: center;
+    line-height: 160px;
+}
+
+.Story-pic {
+    background-color: rgba(128, 128, 128, 0.1);
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+}
+
+.Story-pic-first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.신규 {
+    font-size: 30px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.Select-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Picture-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Menu-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Navigation-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
