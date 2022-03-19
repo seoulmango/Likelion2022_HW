@@ -221,13 +221,13 @@ table {
 .Picture-bar {
     display: flex;
     height: 375px;
+    margin-bottom: 3px;
 }
 
 .Picture {
-    display: flex;
-    height: 375px;
-    width: 375px;
-    margin: 5px;
+    height: 355px;
+    width: 355px;
+    margin: 3px;
 }
 
 .line {
