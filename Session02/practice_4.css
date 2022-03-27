@@ -1,0 +1,21 @@
+.entire {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.container1 {
+    display: flex;
+}
+
+.container2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.box {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(110, 110, 210);
+    border-radius: 5px;
+}

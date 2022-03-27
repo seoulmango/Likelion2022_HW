@@ -1,0 +1,39 @@
+.container {
+    background-color: rgb(244, 244, 244);
+    width: 400px;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    width: 250px;
+}
+
+.infos {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+}
+
+.time {
+    color: gray;
+}
+
+span {
+    color: gray;
+}

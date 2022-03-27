@@ -1,0 +1,55 @@
+
+.tab {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(223, 228, 233);
+    width: 60vh;
+    height: 8vh;
+}
+
+.person {
+    display: flex;
+    justify-content: space-around;
+    font-size:large;
+    align-items: center;
+}
+
+.profile_pic {
+    display: flex;
+
+}
+
+#likelion-profilepic {
+    border-radius: 20%;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.chat_box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+
+.chat_info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.chat_title {
+}
+
+.chatppl_num {
+    color: gray;
+    margin-left: 0.5em;
+}
+
+.chat_last {
+    color: gray;
+}
+
+.time {
+    margin-top: 0.5em;
+    color: gray;
+}
