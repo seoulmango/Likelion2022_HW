@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CountappConfig(AppConfig):
+class CountingappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'CountApp'
+    name = 'CountingApp'
