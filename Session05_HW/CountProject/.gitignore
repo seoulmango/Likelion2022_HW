@@ -1,0 +1,5 @@
+#ignore all of these
+.vscode
+migrations
+db.sqlite3
+__pycache__

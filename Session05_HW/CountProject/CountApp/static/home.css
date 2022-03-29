@@ -1,0 +1,36 @@
+body {
+    background-color: #DCE2F0;
+    color: #50586C;
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+button {
+    background-color: #50586C;
+    border: 2px, solid, black;
+}
+
+a:link {
+    font-size: 50px;
+    color: #DCE2F0;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #DCE2F0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
+}
