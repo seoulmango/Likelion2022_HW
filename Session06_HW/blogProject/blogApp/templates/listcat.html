@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'listcat.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>category</title>
+</head>
+<body>
+    <div class="listbox">
+        <a class="listbox" href="{% url 'list' %}">List</a>
+    </div>
+    <div class="container">
+        <div class="categorybox">
+            <h1>{{ article_cat }}</h1>
+            <span>[{{articlecount}}]</span>
+        </div>
+        <div class="vl"></div>
+        <div>
+            <ol>
+                {% for article in articles %}
+                <li>
+                    <div class="line">
+                        <a href="/detail/{{article.id}}">{{article.title}}</a>
+                        <span>{{article.time_created.year}}/{{article.time_created.month}}/{{article.time_created.day}}, {{article.time_created.time}}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

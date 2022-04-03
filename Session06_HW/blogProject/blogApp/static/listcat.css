@@ -1,0 +1,100 @@
+body {
+	color: #2BAE66;
+	background-color: white;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.listbox {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 4em;
+    margin-top: 1em;
+}
+
+h1 {
+    margin-left: 2em;
+}
+
+.categorybox {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+ol {
+    margin-top: 3em;
+    padding-left: 1em;
+    min-height: 25em;
+}
+
+li {
+    padding-bottom: 2em;
+}
+
+.vl {
+    border-left: #2BAE66 solid 0.15em;
+    padding: 0;
+    margin-left: 5em;
+    margin-right: 5em;
+    margin-top: 1em;
+    height: 35em;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    width: 45em;
+    margin-left: 1em;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2BAE66;
+    text-decoration: none;
+}
+
+a:active {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+a.listbox {
+    font-size: 20px;
+    font-weight: bold;
+    border: solid 0.1em #2BAE66;
+    border-radius: 1em;
+    padding: 0.3em 1em;
+}
+
+a.listbox:link {
+    color: #2BAE66;
+    text-decoration: none;
+}
+
+a.listbox:visited {
+    color: #2BAE66;
+    text-decoration: none;
+}
+
+a.listbox:hover {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+a.listbox:active {
+    color: darkgreen;
+    text-decoration: none;
+}

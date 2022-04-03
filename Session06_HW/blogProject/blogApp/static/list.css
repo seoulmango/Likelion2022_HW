@@ -1,0 +1,100 @@
+body {
+	color: #2BAE66;
+	background-color: white;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+}
+
+ul {
+    list-style: square;
+    padding-left: 1em;
+}
+
+ol {
+    padding-left: 1em;
+    min-height: 25em;
+}
+
+li {
+    padding-bottom: 2em;
+}
+
+.line {
+    display: flex;
+    width: 50em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    width: 35em;
+    justify-content: space-between;
+    margin-left: 2em;
+}
+
+.cat_line {
+    display: flex;
+    width: 10em;
+    justify-content: space-between;
+}
+
+h1 {
+    margin-top: 1em;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2BAE66;
+    text-decoration: none;
+}
+
+a:active {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+.box {
+    border: 10px, solid, #2BAE66;
+}
+
+.category-box {
+    margin-left: 5em;
+}
+
+.vl {
+    border-left: #2BAE66 solid 0.15em;
+    padding: 0;
+    margin-left: 7em;
+    margin-right: 7em;
+    margin-top: 1em;
+    height: 45em;
+}
+
+.hl {
+    border-top: #2BAE66 solid 0.1em;
+    padding: 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+a.newtext {
+	color: #2BAE66;
+	background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a.newtext:hover {
+	color: darkgreen;
+}

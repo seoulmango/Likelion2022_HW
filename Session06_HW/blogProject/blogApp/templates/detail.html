@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+</head>
+<body>
+    <div class="listbox">
+        <a class='atlist' href="{% url 'list' %}">List</a>
+    </div>
+    <div class="titlebox">
+        <h1>{{article.title}}</h1>
+    </div>
+    <div class="hl"></div>
+    <div class="infobox">
+        <span>Category | <a id="cat_link" href="/list/{{article.category}}">{{article.category}}</a></span>
+        <span>{{article.time_created.year}}/{{article.time_created.month}}/{{article.time_created.day}}, {{article.time_created.time}}</span>
+    </div>
+    <div class="contentbox">
+        <span>{{article.content}}</span>
+    </div>
+    <div class="deletebox">
+        <a href="/detail/{{article.id}}/delete">Delete</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <div class="category-box">
+        <h1>Categories</h1>
+        <div class="hl"></div>
+        <ul>
+            <li>
+                <div class="cat_line">
+                    <a href="list/coding">coding</a>
+                    <span>[{{ count_coding }}]</span>
+                </div>
+            </li>
+            <li>
+                <div class="cat_line">
+                    <a href="list/food">food</a>
+                    <span>[{{ count_food }}]</span>
+                </div>
+            </li>
+            <li>
+                <div class="cat_line">
+                    <a href="list/hobby">hobby</a>
+                    <span>[{{ count_hobby }}]</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="vl"></div>
+
+    <div class="list-box">
+        <h1>List</h1>
+        <div class="hl"></div>
+        <ol>
+            {% for article in articles %}
+            <li>
+                <div class="line">
+                    <div class="info">
+                        <a href="detail/{{article.id}}">{{article.title}}</a>
+                        <a href="{% url 'listcat' article.category %}">| {{article.category}}</a>
+                    </div>
+                    <span>{{article.time_created.year}}/{{article.time_created.month}}/{{article.time_created.day}}, {{article.time_created.time}}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+        <div class="hl"></div>
+        <a class="newtext" href="{% url 'new' %}">Upload</a>
+    </div>
+</body>
+</html>

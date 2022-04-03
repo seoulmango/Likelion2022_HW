@@ -1,0 +1,36 @@
+body {
+    background-color: white;
+    color: #2BAE66;
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+button {
+    background-color: #2BAE66;
+    border: 2px, solid, darkgreen;
+}
+
+a:link {
+    font-size: 50px;
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkolivegreen;
+    text-decoration: none;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
+}
