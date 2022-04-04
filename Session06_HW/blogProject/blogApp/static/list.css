@@ -1,4 +1,19 @@
-body {
+.blog-header {
+	color: #2BAE66;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+
+.header-box {
+    border: solid #2BAE66 0.05em;
+    border-radius: 1em;
+    margin: 1em 3em;
+    padding: 0.3em;
+}
+
+.blog-section {
 	color: #2BAE66;
 	background-color: white;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -12,7 +27,7 @@ ul {
 
 ol {
     padding-left: 1em;
-    min-height: 25em;
+    min-height: 23em;
 }
 
 li {
@@ -77,7 +92,7 @@ a:active {
     margin-left: 7em;
     margin-right: 7em;
     margin-top: 1em;
-    height: 45em;
+    height: 35em;
 }
 
 .hl {

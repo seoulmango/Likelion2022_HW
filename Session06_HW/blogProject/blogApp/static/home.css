@@ -10,6 +10,8 @@ h1 {
 }
 
 button {
+    position: absolute;
+    top: 50%;
     background-color: #2BAE66;
     border: 2px, solid, darkgreen;
 }
