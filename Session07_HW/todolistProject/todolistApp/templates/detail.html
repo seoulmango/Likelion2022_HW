@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+</head>
+<body>
+    <div class="homebox">
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+    <div class="titlebox">
+        <h1>{{item.title}}</h1>
+    </div>
+    <div class="hl"></div>
+    <div class="infobox">
+        <div>
+            {% if dday == 0 %}
+                <span class="real-dday">D-DAY</span>
+                <span class="real-bottom"> | {{item.due}}</span>
+            {% elif dday > 0 %}
+                <span class="over-dday">D+{{ dday }}</span>
+                <span class="over-bottom"> | {{item.due}}</span>
+            {% else %}
+                <span class="time-dday">D{{ dday }}</span>
+                <span class="time-bottom"> | {{item.due}}</span>
+            {% endif %}
+        </div>
+        <div>
+            <a href="/edit/{{item.id}}">Edit</a>
+        </div>
+    </div>
+    <div class="contentbox">
+        <span>{{item.content}}</span>
+    </div>
+    <div class="deletebox">
+        <a href="/delete/{{item.id}}">Delete</a>
+    </div>
+</body>
+</html>

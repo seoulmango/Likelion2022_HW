@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>To-do List</h1>
+    <div class="hl"></div>
+    <form action="" method="post">
+        {% csrf_token %}
+            <div class="add list_left">
+                <div class="add-button">
+                    <button class="button-51" role="button" type="submit">추가하기</button>
+                </div>
+                <div class="add info">
+                    <div class="add time">
+                        <input type="date" name="due" id="due" required>
+                    </div>
+                    <div class="add item">
+                        <input type="text" name="title" id="title" placeholder="Title" required>
+                        <textarea name="content" id="content" placeholder="Content" cols="70" required></textarea>
+                    </div>
+                </div>
+            </div>
+    </form>
+    <div class="hl"></div>
+    <div>
+        <ul>
+            {% for item in items %}
+            <li class="{{ item.due }}">
+                <div class="list_left">
+                    <a href= "{% url 'delete' item.id %}" class="check">
+                        <div class="check-text">☑</div>
+                    </a>
+                    <div class="info">
+                        <div class="time">
+                            {% for k,v in dday_dic %}
+                                {% if k == item.id %}
+                                    {% if v == 0 %}
+                                    <span class="real-dday">D-DAY</span>
+                                    {% elif v > 0 %}
+                                    <span class="over-dday">D+{{ v }}</span>
+                                    {% else %}
+                                    <span class="time-dday">D{{ v }}</span>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            <span class="time-date">| {{ item.due.month }}/{{ item.due.day }}</span>
+                        </div>
+                        <div class="item">
+                            <span class="item-title"><a href="/detail/{{ item.id }}">{{ item.title }}</a></span>
+                            <span class="item-content"> | {{ item.content }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="/editsimple/{{ item.id }}">Edit</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'editsimple.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>To-do List</h1>
+    <div class="hl"></div>
+    <form action="" method="post">
+        {% csrf_token %}
+            <div class="add list_left">
+                <div class="edit-button">
+                    <button class="button-51" role="button" type="submit">수정하기</button>
+                </div>
+                <div class="add info">
+                    <div class="add time">
+                        <input type="date" name="due" id="due" required>
+                    </div>
+                    <div class="add item">
+                        <input type="text" name="title" id="title" value="{{ item.title }}" required>
+                        <textarea name="content" id="content" cols="50" required>{{ item.content }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="check">
+                <a href= "{% url 'home' %}">Cancel</a>
+            </div>
+    </form>
+    <div class="hl"></div>
+
+    
+    <div>
+        <ul>
+            {% for item_except in items_except %}
+            <li class="{{ item_except.due }}">
+                <div class="list_left">
+                    <a href= "{% url 'delete' item_except.id %}" class="check">
+                        <div class="check-text">☑</div>
+                    </a>
+                    <div class="info">
+                        <div class="time">
+                            {% for k,v in dday_dic %}
+                                {% if k == item_except.id %}
+                                    {% if v == 0 %}
+                                    <span class="real-dday">D-DAY</span>
+                                    {% elif v > 0 %}
+                                    <span class="over-dday">D+{{ v }}</span>
+                                    {% else %}
+                                    <span class="time-dday">D{{ v }}</span>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            <span class="time-date">| {{ item_except.due.month }}/{{ item_except.due.day }}</span>
+                        </div>
+                        <div class="item">
+                            <span class="item-title"><a href="/detail/{{ item_except.id }}">{{ item_except.title }}</a></span>
+                            <span class="item-content"> | {{ item_except.content }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="/editsimple/{{ item_except.id }}">Edit</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
