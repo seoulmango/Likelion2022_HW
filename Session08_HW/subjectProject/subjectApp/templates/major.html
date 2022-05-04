@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'major.css' %}">
+    <title>Computer</title>
+</head>
+<body>
+    <div class="title-box">
+        <h1>🎓{{ major }} 강의</h1>
+        <a href="{% url 'addSubject' %}">과목 추가</a>
+    </div>
+    <div class="hl"></div>
+    <ol>
+    {% for lecture in lectures %}
+        <div class="subject-list">
+            <li>
+                <div class="subject-list-left">
+                    <div>
+                        <span class="bold">{{ lecture.subject_name }}</span>
+                        <span> | {{ lecture.major }} | </span>
+                        <span>{{ lecture.prof_name }} | </span>
+                    </div>
+                    <div>
+                        <span><a href="{% url 'editSubject' lecture.pk %}">수정</a></span>
+                        <span><a href="{% url 'deleteSubject' lecture.pk %}">삭제</a></span>
+                    </div>
+                </div>
+                <span class="memos">{{ lecture.memo|linebreaks }}</span>
+            </li>
+        </div>
+    {% endfor %}
+    </ol>
+    <a href="{% url 'home' %}" class="main">메인 페이지</a>
+</body>
+</html>

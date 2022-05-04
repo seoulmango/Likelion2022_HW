@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'editMajor.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editSubject</title>
+</head>
+<body>
+    <h2>🎓전공 수정하기</h2>
+    <div class="hl"></div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>수정하기</button>
+        </form>
+    </div>
+    <a href="{% url 'home' %}" class="main">메인 페이지</a>
+</body>
+</html>

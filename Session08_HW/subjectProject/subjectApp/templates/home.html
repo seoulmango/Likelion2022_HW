@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div class="title-box">
+        <h1>🎓 Majors</h1>
+        <a href="{% url 'addMajor' %}">+전공 추가</a>
+    </div>
+    <div class="hl"></div>
+    <ul>
+    {% for major in majors %}
+        <li class="major-list">
+            <div class="major-list-left">
+                <div class="school">🏫 </div>
+                <div class="major-name">
+                    <a href="{% url 'major' major.pk %}">{{ major.name }}</a>
+                </div>
+            </div>
+            <div>
+                <a href="{% url 'editMajor' major.pk %}">수정</a>
+                <a href="{% url 'deleteMajor' major.pk %}">삭제</a>
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+    <br>
+    <div class="title-box">
+        <h1 class="lectures">📓 Lectures</h1>
+        <a href="{% url 'addSubject' %}">+강의 추가</a>
+    </div>
+    <div class="hl"></div>
+    <ol>
+    {% for subject in subjects %}
+    <div class="subject-list">
+        <li>
+            <div>
+                <div class="subject-list-left">
+                    <div>
+                        <span class="bold">✏️{{ subject.subject_name }}</span>
+                        <span> | 🏫<a href="{% url 'major' subject.major.pk %}">{{ subject.major }}</a> | </span>
+                        <span>🧑🏻‍🏫{{ subject.prof_name }} | </span>
+                    </div>
+                    <div>
+                        <span><a href="{% url 'editSubject' subject.pk %}">수정</a></span>
+                        <span><a href="{% url 'deleteSubject' subject.pk %}">삭제</a></span>
+                    </div>
+                </div>
+
+                <span class="memos">{{ subject.memo|linebreaks }}</span>
+            </div>
+        </li>
+    </div>
+    {% endfor %}
+    </ol>
+</body>
+</html>
