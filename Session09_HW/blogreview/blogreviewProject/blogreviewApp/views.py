@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Post
-from django.db.models.functions import Now
-from django.utils.timezone import localtime
+import datetime
 
 # Create your views here.
 
@@ -42,7 +41,7 @@ def edit(request, post_pk):
         post.update(
             title = request.POST['title'],
             content = request.POST['content'],
-            update_date = Now(),
+            update_date = datetime.datetime.now(),
         )
         return redirect('home')
     return render(request, 'edit.html', {

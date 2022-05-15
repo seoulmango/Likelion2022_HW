@@ -18,8 +18,12 @@
     <div class="info">
         <div>조회수: {{ post.visit }}</div>
         <div>
-            <div>생성: {{ post.create_date }}</div>
-            <div>수정: {{ post.update_date }}</div>
+            {% if not post.update_date %}
+                <div>생성: {{ post.create_date }}</div>
+            {% else %}
+                <div>생성: {{ post.create_date }}</div>
+                <div>수정: {{ post.update_date }}</div>
+            {% endif %}
         </div>
     </div>
     <div class="hl"></div>

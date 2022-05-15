@@ -16,7 +16,7 @@
     <a href="{% url 'create' %}" class="write">✏️ 글 작성하기</a>
     {% if not posts %}
         <h3>작성된 글이 없습니다</h3>
-    {% endif %}
+    {% else %}
     <ol>
     {% for post in posts %}
         <li>
@@ -28,7 +28,7 @@
                         📖 {{ post.title }}
                     </a>
                 </div>
-                <div>| 🕥 {{ post.create_date.month }}/{{ post.create_date.day }} {{ post.create_date.time }}</div>
+                <div>| 🕥 {{ post.create_date}}</div>
 
                 {% else %}
 
@@ -39,7 +39,7 @@
                         📖 {{ post.title }}
                     </a>
                 </div>
-                <div>| 🕥 {{ post.update_date.month }}/{{ post.update_date.day }} {{ post.update_date.time }}</div>
+                <div>| 🕥 {{ post.update_date}}</div>
                 {% endif %}
             </div>
         </li>
@@ -49,5 +49,6 @@
         </div>
     {% endfor %}
     </ol>
+    {% endif %}
 </body>
 </html>
