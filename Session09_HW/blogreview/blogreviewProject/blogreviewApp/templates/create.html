@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'create.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Hahmlet:wght@100&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Page</title>
+</head>
+<body>
+    <h1>✏️ 새 글 작성하기</h1>
+    <div class="hl"></div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" class="title" placeholder="제목">
+        <textarea name="content" placeholder="내용을 작성해주세요" cols="130" rows="10" class="content"></textarea>
+        <button type="submit">제출하기</button>
+    </form>
+    <a href="{% url 'home' %}">돌아가기</a>
+</body>
+</html>
