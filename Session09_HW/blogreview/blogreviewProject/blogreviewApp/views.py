@@ -44,6 +44,7 @@ def edit(request, post_pk):
             update_date = datetime.datetime.now(),
         )
         return redirect('home')
+    post = Post.objects.get(pk=post_pk)
     return render(request, 'edit.html', {
         'post': post,
         })
