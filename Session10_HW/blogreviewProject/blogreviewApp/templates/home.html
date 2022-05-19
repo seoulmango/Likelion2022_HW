@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Hahmlet:wght@100&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+{% endblock css %}
+
+{% block body %}
+<h1>Posts</h1>
+<div class="hl"></div>
+<a href="{% url 'create' %}" class="write">✏️ 글 작성하기</a>
+{% if not posts %}
+    <h3>작성된 글이 없습니다</h3>
+{% else %}
+<ol>
+{% for post in posts %}
+    <li>
+        <div class="list-container">
+            {% if not post.update_date %}
+            <div>[조회수: {{ post.visit }}] |</div>
+            <div>
+                <a href="{% url 'detail' post.pk %}">
+                    📖 {{ post.title }}
+                </a>
+            </div>
+            <div>| 🕥 {{ post.create_date}}</div>
+
+            {% else %}
+
+            <div>[조회수: {{ post.visit }}] |</div>
+            <div>
+                <span class="edited">[수정됨]</span>
+                <a href="{% url 'detail' post.pk %}">
+                    📖 {{ post.title }}
+                </a>
+            </div>
+            <div>| 🕥 {{ post.update_date}}</div>
+            {% endif %}
+        </div>
+    </li>
+    <div class="edit">
+        <a href="{% url 'edit' post.pk %}">수정하기</a>
+        <a href="{% url 'delete' post.pk %}">삭제하기</a>
+    </div>
+{% endfor %}
+</ol>
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'detail.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Hahmlet:wght@100&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+{% endblock css %}
+
+{% block body %}
+    <h1>📖 {{ post.title }}</h1>
+    <div class="hl"></div>
+    <div class="info">
+        <div>조회수: {{ post.visit }}</div>
+        <div>
+            {% if not post.update_date %}
+                <div>생성: {{ post.create_date }}</div>
+            {% else %}
+                <div>생성: {{ post.create_date }}</div>
+                <div>수정: {{ post.update_date }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hl"></div>
+    <div class="content-box">{{ post.content }}</div>
+
+    <div class="hl-content"></div>
+
+    <a href="{% url 'home' %}" class="back">돌아가기</a>
+
+    <div class="edit">
+        <a href="{% url 'edit' post.pk %}">수정하기</a>
+        <a href="{% url 'delete' post.pk %}">삭제하기</a>
+    </div>
+
+    <div class="hl-comment"></div>
+
+    <div class="comment-box">
+        <h3>Comments</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">댓글 달기</button>
+            <input type="text" name="content" placeholder="댓글을 작성하세요" cols="50" rows="10">
+        </form>
+        <ol>
+        {% for comment in post.comments.all %}
+            <li>{{ comment.content }}</li>
+            <a href="{% url 'delete_comment' post.pk comment.pk %}">삭제하기</a>
+        {% endfor %}
+        </ol>
+    </div>
+{% endblock body %}
