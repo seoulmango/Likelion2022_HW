@@ -1,0 +1,16 @@
+.header-box {
+    display: flex;
+    justify-content: center;
+    border: solid 0.1em gray;
+    border-style: ridge;
+    border-radius: 1em;
+    margin: 1em 10%;
+    padding: 1em 0;
+}
+
+.header-box div{
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em;
+}
+
+

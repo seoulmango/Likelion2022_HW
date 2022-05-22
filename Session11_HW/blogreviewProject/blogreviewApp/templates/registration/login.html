@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+{% endblock css %}
+
+{% block body %}
+
+{% load socialaccount %}
+
+<form
+    class="login"
+    method="POST"
+    action="{% provider_login_url 'kakao' %}"
+>
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if redirect_field_value %}
+    <input
+        type="hidden"
+        name="{{ redirect_field_name }}"
+        value="{{ redirect_field_value }}"
+    />
+    {% endif %}
+    <button class="primaryAction" type="submit">카카오 로그인</button>
+</form>
+
+<section id="login">
+    <form method="POST">
+        {% csrf_token %}
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        <input type="text" name="username" placeholder="아이디" />
+        <input type="password" name="password" placeholder="비밀번호" />
+        <button type="submit">로그인하기</button>
+    </form>
+</section>
+<a href="{% url 'home' %}">돌아가기</a>
+{% endblock body %}

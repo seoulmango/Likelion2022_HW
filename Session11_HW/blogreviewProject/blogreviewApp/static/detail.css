@@ -1,0 +1,106 @@
+* {
+    font-family: 'Gowun Batang', serif;
+}
+
+h1 {
+    font-family: 'Nanum Pen Script', cursive;
+    text-align: center;
+    font-size: 5em;
+}
+
+.hl {
+    border-top: 0.1em solid black;
+    margin: 0 10em;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+a:active {
+    color: darkgreen;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 10em;
+    align-items: center;
+}
+
+.content-box {
+    border-top: solid 0.05em black;
+    margin: 3em 10em;
+    padding: 2em 2em;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.edit {
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+div.comment-box {
+    margin: 3em 10em;
+    padding: 0 2em 1em;
+}
+
+h3 {
+    font-family: 'Nanum Pen Script', cursive;
+    text-align: center;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 5%;
+}
+
+input {
+    padding: 1em 1em;
+    width: 80%;
+}
+
+button {
+    width: 10%;
+}
+
+ol {
+    margin: 3em 5%;
+}
+
+li {
+    margin-top: 1.5em;
+}
+
+.hl-comment {
+    border-top: 0.05em solid black;
+    margin: 5em 10em 0;
+}
+
+.hl-content {
+    border-top: 0.05em solid black;
+    margin: 0 10em 10em;
+}

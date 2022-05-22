@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+<form
+    class="login"
+    method="POST"
+    action="{% provider_login_url 'kakao' %}"
+>
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if redirect_field_value %}
+    <input
+        type="hidden"
+        name="{{ redirect_field_name }}"
+        value="{{ redirect_field_value }}"
+    />
+    {% endif %}
+    <button class="primaryAction" type="submit">카카오 로그인</button>
+</form>

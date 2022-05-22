@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load socialaccount %}
+    {% providers_media_js %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    {% block css %}
+    <!-- 자식 템플렛 css -->
+    {% endblock css %}
+</head>
+<body>
+    <div class="header-box">
+        <div>
+            🥳 Welcome to Giman's Blog 🥳
+        </div>
+    </div>
+    <div class="nav-bar">
+        <ul>
+            {% if user.is_authenticated %}
+            <li class="nav-bar-item">
+                안녕, {{ user.username }}
+            </li>
+            <li class="nav-bar-item">
+                <a href="{% url 'logout' %}">로그아웃</a>
+            </li>
+            {% else %}
+            <li class="nav-bar-item">
+                <a href="{% url 'signup' %}">회원가입하기</a>
+            </li>
+            <li class="nav-bar-item">
+                <a href="{% url 'login' %}">로그인</a>
+            </li>
+            {% endif %}
+    </div>
+    {% block body %}
+    {% endblock body %}
+
+
+</body>
+</html>
