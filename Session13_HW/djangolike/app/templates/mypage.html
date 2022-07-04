@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+  좋아요 누른 글
+  <div>
+    {% for like in likes %}
+    <a href="{% url 'detail' like.post.pk %}">{{ like.post.title }}</a>
+    {% endfor %}
+  </div>
+</div>
+<div>
+  찜하기 누른 글
+  <div>
+    {% for save in saves %}
+    <a href="{% url 'detail' save.post.pk %}">{{ save.post.title }}</a>
+    {% endfor %}
+  </div>
+  {% endblock content %}
+</div>

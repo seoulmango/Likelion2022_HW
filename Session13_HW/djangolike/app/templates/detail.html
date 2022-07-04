@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+  <div>
+    <div class="post_title">{{ post.title }}</div>
+    <div class="post_content">{{ post.content }}</div>
+  </div>
+  <a href="{% url 'home' %}">홈으로</a>
+
+  {% if user.is_authenticated and post.author.pk == user.pk %}
+  <a href="{% url 'edit' post.pk %}">수정하기</a>
+  <a href="{% url 'delete' post.pk %}">삭제하기</a>
+  <p id="save-count">이 글을 스크랩한 사람 수: {{post.saves.count}}명</p>
+  {% endif %} {% for comment in post.comments.all %}
+  <li>{{ comment.content }}</li>
+  {% if user.is_authenticated and comment.author.pk == user.pk %}
+  <a href="{% url 'delete_comment' post.pk comment.pk %}">댓글삭제</a>
+  {% endif %} {% endfor %} {% if user.is_authenticated %}
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="content" placeholder="댓글을 입력하세요" />
+    <button type="submit">댓글 쓰기</button>
+  </form>
+
+  <button id="like-button" onclick="like()">좋아요</button>
+  {% endif %}
+  {% if liked == 1 %}
+  <div id="like-count" style="color:red;">좋아요 {{ post.likes.count }}개</div>
+  {% else %}
+  <div id="like-count" style="color:black;">좋아요 {{ post.likes.count }}개</div>
+  {% endif %}
+
+  {%if saved == 1 %}
+  <input type="button" id="save-button" onclick="save()" value="스크랩 취소하기"></input>
+  {% else %}
+  <input type="button" id="save-button" onclick="save()" value="스크랩"></input>
+  {% endif %}
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+  const like = () => {
+    axios('/like', {
+      method: "POST",
+      data: {post_pk: "{{post.pk}}"}
+    })
+    .then(res => document.getElementById("like-count").innerHTML = "좋아요" + res.data.like_count + '개')
+    changeLikeColor()
+  }
+
+  const changeLikeColor = () => {
+    if (document.getElementById("like-count").style.color === 'black') {
+      document.getElementById("like-count").style.color = 'red';
+    } else {
+      document.getElementById("like-count").style.color = 'black';
+    }
+  }
+
+  const save = () => {
+    let sb = document.getElementById('save-button');
+    changeSaveValue()
+    axios('/save', {
+      method: "POST",
+      data: {post_pk: "{{post.pk}}"}
+    })
+    .then(res => document.getElementById("save-count").innerHTML = "이 글을 스크랩한 사람 수: " + res.data.save_count + '명')
+  }
+
+  const changeSaveValue = () => {
+    if (document.getElementById("save-button").value === '스크랩') {
+      document.getElementById("save-button").value = '스크랩 취소하기';
+    } else {
+      document.getElementById("save-button").value = '스크랩';
+    }
+  }
+
+
+</script>
+{% endblock content %}
