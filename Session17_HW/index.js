@@ -1,3 +1,5 @@
+const $ = (selector) => document.querySelector(selector);
+
 function App() {
     // 새로고침 떄 마다 시행
     this.init = () => {
@@ -65,3 +67,16 @@ function App() {
 
 const app = new App();
 app.init();
+
+$(".modal-stop-button").addEventListener("click", () => {
+    closeModal();
+    setCookie("modalClose", "true", 1);
+});
+  
+let checkCookie = getCookie("modalClose");
+  
+if (checkCookie == 'true') {
+    closeModal();
+} else {
+    openModal();
+}
